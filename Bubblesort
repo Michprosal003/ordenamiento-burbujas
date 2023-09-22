@@ -1,0 +1,76 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Bubblesort
+{
+    public partial class Form1 : Form
+    {
+
+
+
+
+        int[] elementos = new int[5];
+
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+
+        private void ordenamientodeburbuja()
+        {
+
+            int refos = 0;
+            for (int i = 0;  i < elementos.Length -1; i++)
+            {
+
+                for(int j =0;  j < elementos.Length -(i +1); j++)
+                {
+                    if (elementos[j] > elementos[j + 1])
+                    {
+                        refos = elementos[j];
+                        elementos[j] = elementos[j + 1];
+                        elementos[j + 1] = refos; 
+
+
+
+                    }
+
+
+                }
+
+            }
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+            elementos[0] = Convert.ToInt32(textBox1.Text);
+            elementos[1] = Convert.ToInt32(textBox2.Text);
+            elementos[2] = Convert.ToInt32(textBox3.Text);
+            elementos[3] = Convert.ToInt32(textBox4.Text);
+            elementos[4] = Convert.ToInt32(textBox5.Text);
+            ordenamientodeburbuja();
+
+            for ( int i =0; i < elementos.Length; i++)
+            {
+                listBox1.Items.Add(elementos[i]);
+            }
+
+
+
+
+        }
+    }
+}
